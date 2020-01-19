@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def T(x):
+def relu(x):
     return 0 if x <= 0 else 1
 
 
@@ -27,8 +27,7 @@ def main():
         for w2 in range(-5, 5):
             w1_w2_res = 0
             for k in range(4):
-                res = T(w1 * possible_inputs[k]
-                        [0] + w2 * possible_inputs[k][1])
+                res = relu(w1 * possible_inputs[k][0] + w2 * possible_inputs[k][1])
                 error = 0.5 * (res - possible_outputs[k]) ** 2
                 w1_w2_res += error
             results[w1 + 5][w2 + 5] = w1_w2_res

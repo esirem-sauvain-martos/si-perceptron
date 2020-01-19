@@ -9,23 +9,22 @@ def main():
     ]
 
     outputs = [
-        0,
-        0,
-        0,
-        1
+        [0],
+        [0],
+        [0],
+        [1]
     ]
 
-    perceptron = Perceptron(2, 7, 0.01, 0.039)
+    perceptron = Perceptron(2, 1, 0.01, 500)
+
+    # perceptron.load_weight()
     perceptron.train(inputs, outputs)
 
     for possible_input in inputs:
-        print(perceptron.predict(possible_input[0], possible_input[1]))
+        possible_input.append(1)
+        print(perceptron.predict(possible_input, 0))
 
-    perceptron.show_error_graph()
-    
-    # perceptron.save_weight()
-    # perceptron.load_weight()
-
+    perceptron.save_weight()
 
 
 if __name__ == "__main__":
